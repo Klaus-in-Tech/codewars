@@ -16,8 +16,8 @@ Welcome to my Codewars dojo! This repository is a collection of my solutions to 
 ```
 .
 ├── python/
-│   ├── 8kyu/
-│   ├── 7kyu/
 │   ├── 6kyu/
+│   ├── 7kyu/
+│   ├── 8kyu/
 │   └── ...
 └── README.md
