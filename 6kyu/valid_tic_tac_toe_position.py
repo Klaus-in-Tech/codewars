@@ -1,48 +1,85 @@
-# def is_valid_position(board: tuple[tuple[str]]) -> bool:
-#     # Flatten the board for easier processing
+"""
+You work as a data scientist at an IT company, and your boss, all of a sudden, asked you to find the most common patterns in Tic Tac Toe games submitted to a survey on your company's website.
 
-#     flat_board = [cell for row in board for cell in row]
+However, some of them are not from real games, i. e. the position on such a game board cannot be reached through normal play.
+
+You have to find a way to filter out such "games", leaving only the correct (reachable) ones.
+
+Task
+You will be given a 3x3 array of character arrays (tuple of string tuples in Python) representing a Tic Tac Toe game board, with the following specifications:
+
+'X' is a square occupied by player X,
+'O' is a square occupied by player O,
+'_' is a square not occupied by either player.
+Given this board, you need to determine whether this board represents a position that is reachable through normal play, and return a boolean value: true (if the condition is satisfied) and false otherwise.
+
+Validation rules:
+
+'X' should always be the first player to move.
+During one move, a player must occupy one extra square.
+If a player manages to occupy 3 squares in a row (horizontally, vertically or diagonally), the game is immediately over and no further moves can be made; that player wins and is declared victorious (such a game is valid).
+If all squares are occupied and neither player managed to get 3 in a row, the game ends in a draw (which is valid).
+Games where not all squares are occupied and neither player got 3 in a row are considered valid.
+Special case: This board (and similar ones where 'X' has two three-in-a-rows but the position can be reached):
+
+X X X
+O O X
+O O X
+should result in true.
+
+The board is guaranteed to be 3x3 and to consist of only 'X', 'O' or '_'.
+
+Good luck!
+
+"""
+
+
+def is_valid_position(board: tuple[tuple[str]]) -> bool:
+
+    # Flatten the board for easier processing
+
+    flat_board = [cell for row in board for cell in row]
     
-#     x_count = flat_board.count('X')
-#     o_count = flat_board.count('O')
+    x_count = flat_board.count('X')
+    o_count = flat_board.count('O')
     
-#     # Check the counts are valid
-#     if not (x_count == o_count or x_count == o_count + 1):
-#         return False
+    # Check the counts are valid
+    if not (x_count == o_count or x_count == o_count + 1):
+        return False
     
-#     # Check if 'X' wins
-#     def check_win(player):
-#         # Check rows
-#         for row in board:
-#             if all(cell == player for cell in row):
-#                 return True
-#         # Check columns
-#         for col in range(3):
-#             if all(board[row][col] == player for row in range(3)):
-#                 return True
-#         # Check diagonals
-#         if all(board[i][i] == player for i in range(3)):
-#             return True
-#         if all(board[i][2 - i] == player for i in range(3)):
-#             return True
-#         return False
+    # Check if 'X' wins
+    def check_win(player):
+        # Check rows
+        for row in board:
+            if all(cell == player for cell in row):
+                return True
+        # Check columns
+        for col in range(3):
+            if all(board[row][col] == player for row in range(3)):
+                return True
+        # Check diagonals
+        if all(board[i][i] == player for i in range(3)):
+            return True
+        if all(board[i][2 - i] == player for i in range(3)):
+            return True
+        return False
     
-#     x_wins = check_win('X')
-#     o_wins = check_win('O')
+    x_wins = check_win('X')
+    o_wins = check_win('O')
     
-#     # Both players cannot win
-#     if x_wins and o_wins:
-#         return False
+    # Both players cannot win
+    if x_wins and o_wins:
+        return False
     
-#     # If 'X' wins, then 'X' must have one more move than 'O'
-#     if x_wins and x_count != o_count + 1:
-#         return False
+    # If 'X' wins, then 'X' must have one more move than 'O'
+    if x_wins and x_count != o_count + 1:
+        return False
     
-#     # If 'O' wins, then 'O' must have same moves as 'X'
-#     if o_wins and x_count != o_count:
-#         return False
+    # If 'O' wins, then 'O' must have same moves as 'X'
+    if o_wins and x_count != o_count:
+        return False
     
-#     return True
+    return True
 
 
 #Other Solutions:
@@ -53,5 +90,4 @@ VALID = [0,1,3,9,27,81,243,729,2187,6561,5,7,11,15,19,21,29,33,45,55,57,63,83,87
 def fromTernary(xs): return reduce( lambda z,x: 3 * z + x , xs );
 
 def is_valid_position(xss): return fromTernary( "_XO".index(x) for xs in xss for x in xs ) in VALID
-
 
