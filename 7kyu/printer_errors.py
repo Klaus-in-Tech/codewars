@@ -27,3 +27,8 @@ def printer_error(s):
         if re.findall(r'[n-z]',char):
             count+=1
     return f'{count}/{len(s)}'
+
+#Other Solutions:
+def printer_error(s):
+    errors = sum(1 for char in s if char > 'm')
+    return f"{errors}/{len(s)}"
