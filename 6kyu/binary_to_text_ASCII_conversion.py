@@ -12,7 +12,7 @@ Note: In the case of an empty binary string your function should return an empty
 
 
 def binary_to_string(binary):
-    
+     
     if not binary:
         return ''
     # Creating the chunks 
