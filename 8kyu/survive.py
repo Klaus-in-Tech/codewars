@@ -17,3 +17,6 @@ def hero(bullets, dragons):
 def hero(bullets, dragons):
     # Check if the number of bullets is sufficient to defeat the dragons
     return bullets >= dragons * 2
+
+
+

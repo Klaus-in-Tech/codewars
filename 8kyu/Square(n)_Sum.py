@@ -14,3 +14,8 @@ def square_sum(numbers):
 def square_sum(numbers):
     # Calculate the sum of squares using a generator expression
     return sum(x ** 2 for x in numbers)
+
+
+if __name__ == '__main__':
+    print(square_sum([1,2,2]))  # Expected output: 9    
+    print(square_sum([0,3,4,5]))  # Expected output: 50
