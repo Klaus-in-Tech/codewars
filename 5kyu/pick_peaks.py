@@ -18,10 +18,3 @@ def pick_peaks(arr):
         # if equal, keep candidate (plateau) and continue
 
     return {"pos": pos, "peaks": peaks}
-
-
-if __name__ == "__main__":
-    print(pick_peaks([3,2,3,6,4,1,2,3,2,1,2,3]))  # {'pos':[3,7], 'peaks':[6,3]}
-    print(pick_peaks([1,2,2,2,1]))                # {'pos':[1],   'peaks':[2]}
-    print(pick_peaks([1,2,2,2,3]))                # {'pos':[],    'peaks':[]}
-    print(pick_peaks([]))                         # {'pos':[],    'peaks':[]}
