@@ -22,6 +22,13 @@ def look_and_say(n: int) -> int:
     return int("".join(out_parts))
 
 
+
+#other solution:    
+from itertools import groupby
+
+def look_say(n):
+    return int("".join(f'{len(list(v))}{k}' for k, v in groupby(str(n))))
+
 # Example usage:
 if __name__ == "__main__":
     print(look_and_say(1))      # Output: 11
