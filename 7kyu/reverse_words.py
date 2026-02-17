@@ -16,7 +16,7 @@ def reverse_words(text):
 def reverse_words(text):
     return ' '.join(word[::-1] for word in text.split(' '))
 
-# 17th-02-2026 Other solution
+# Other solution
 def reverse_words(text):    
     splitted_words_from_text = text.split(" ")
     reversed_words_in_an_array = [word[::-1] for word in splitted_words_from_text]
