@@ -33,6 +33,20 @@ class Dictionary:
                 matches.append(word)
         return matches
     
+
+
+#Other solutions:
+import re
+
+class Dictionary: 
+    def __init__(self, words):
+        self.words = words
+        
+    def get_matching_words(self, pattern):
+        # your code here
+        return [word for word in self.words if re.fullmatch(pattern.replace('?', '.'), word )]
+
+    
 fruits = Dictionary(['banana', 'apple', 'papaya', 'cherry'])
 print(fruits.get_matching_words('lemon'))     # []
 print(fruits.get_matching_words('cherr??'))   # []
