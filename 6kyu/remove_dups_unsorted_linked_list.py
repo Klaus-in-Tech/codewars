@@ -36,3 +36,16 @@ def remove_dups(head):
         current = current.next
 
     return head
+
+# Test cases
+def print_list(node):
+    values = []
+    while node is not None:
+        values.append(node.data)
+        node = node.next
+    return values   
+
+# Example 1
+head1 = Node(1, Node(2, Node(3, Node(2, Node(4)))))
+new_head1 = remove_dups(head1)
+print(print_list(new_head1))  # Output: [1, 2, 3, 4]
