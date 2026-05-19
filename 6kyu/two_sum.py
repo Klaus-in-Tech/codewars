@@ -26,3 +26,16 @@ def two_sum(nums, t):
         for j, y in enumerate(nums):
             if i != j and x + y == t:
                 return [i, j]
+            
+
+def two_sum(nums,target):
+    dict = {}
+    for i,_first_num in enumerate(nums):
+        _second_num = target - _first_num
+        if _second_num in dict:
+            return (dict[_second_num],i)
+        dict[_first_num] = i
+        
+
+if __name__ == "__main__":
+    print(two_sum([1, 2, 3], 4) )
